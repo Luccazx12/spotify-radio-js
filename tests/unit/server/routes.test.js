@@ -136,6 +136,11 @@ describe("#Routes - test site for api response", () => {
   });
 
   describe("exceptions", () => {
+    beforeEach(() => {
+      jest.restoreAllMocks();
+      jest.clearAllMocks();
+    });
+
     test("given inexistent file it should respond with 404", async () => {
       const params = TestUtil.defaultHandleParams();
       params.request.method = "POST";
@@ -143,14 +148,17 @@ describe("#Routes - test site for api response", () => {
 
       jest
         .spyOn(Controller.prototype, Controller.prototype.getFileStream.name)
-        .mockRejectedValue(new Error("Error: ENOENT: no such file or directory"));
+        .mockRejectedValue(
+          new Error("Error: ENOENT: no such file or directory")
+        );
 
       await handler(...params.values());
 
       expect(params.response.writeHead).toHaveBeenCalledWith(404);
       expect(params.response.end).toHaveBeenCalled();
     });
-    test("given an error it should respond with 500", async() => {
+
+    test("given an error it should respond with 500", async () => {
       const params = TestUtil.defaultHandleParams();
       params.request.method = "GET";
       params.request.url = "/index.png";
