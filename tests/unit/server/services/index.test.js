@@ -20,13 +20,13 @@ describe("#Service - test suite for API service ", () => {
     const file = "/index.html";
     const mockFileStream = TestUtil.generateReadableStream(["data"]);
 
-    jest.spyOn(fs, fs.createReadStream.name).mockResolvedValue(mockFileStream);
+    jest.spyOn(fs, fs.createReadStream.name).mockReturnValue(mockFileStream);
 
     const service = new Service();
     const serviceReturn = service.createFileStream(file);
 
     expect(fs.createReadStream).toBeCalledWith(file);
-    expect(serviceReturn).resolves.toStrictEqual(mockFileStream);
+    expect(serviceReturn).toStrictEqual(mockFileStream);
   });
 
   test("getFileInfo ~ should get file info and return your name and type", async () => {
@@ -57,7 +57,7 @@ describe("#Service - test suite for API service ", () => {
     const expectedFullFilePath = publicDirectory + file;
     const mockFileStream = TestUtil.generateReadableStream(["data"]);
 
-    jest.spyOn(fs, fs.createReadStream.name).mockResolvedValue(mockFileStream);
+    jest.spyOn(fs, fs.createReadStream.name).mockReturnValue(mockFileStream);
 
     jest.spyOn(path, path.join.name).mockResolvedValue(expectedFullFilePath);
 
@@ -70,7 +70,9 @@ describe("#Service - test suite for API service ", () => {
     const service = new Service();
     const serviceReturn = await service.getFileStream(file);
 
-    expect(serviceReturn.stream).resolves.toStrictEqual(mockFileStream);
-    expect(serviceReturn.type).toStrictEqual(expectedType);
+    expect(serviceReturn).toStrictEqual({
+      stream: mockFileStream,
+      type: expectedType,
+    });
   });
 });
