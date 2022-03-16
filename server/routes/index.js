@@ -1,6 +1,6 @@
-import config from "./config.js";
-import { logger } from "./util.js";
-import { Controller } from "./controller.js";
+import config from "../config/index.js";
+import { logger } from "../util/index.js";
+import { Controller } from "../controller/index.js";
 
 const {
   location,

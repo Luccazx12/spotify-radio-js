@@ -1,6 +1,6 @@
 import fs from "fs";
 import fsPromises from "fs/promises";
-import config from "./config.js";
+import config from "../config/index.js";
 import { join, extname } from "path";
 
 const {

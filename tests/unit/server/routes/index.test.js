@@ -1,9 +1,9 @@
 import { jest, expect, describe, test, beforeEach } from "@jest/globals";
-import config from "../../../server/config.js";
-import TestUtil from "../_util/test.util.js";
+import config from "../../../../server/config/index.js";
+import TestUtil from "../../_util/test.util.js";
 
-import { handler } from "../../../server/routes.js";
-import { Controller } from "../../../server/controller.js";
+import { handler } from "../../../../server/routes/index.js";
+import { Controller } from "../../../../server/controller/index.js";
 
 const {
   pages,

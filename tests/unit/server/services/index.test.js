@@ -2,9 +2,9 @@ import { describe, test, jest, expect } from "@jest/globals";
 import fs from "fs";
 import fsPromises from "fs/promises";
 import path from "path";
-import config from "../../../server/config.js";
-import { Service } from "../../../server/service.js";
-import TestUtil from "../_util/test.util.js";
+import config from "../../../../server/config/index.js";
+import { Service } from "../../../../server/services/index.js";
+import TestUtil from "../../_util/test.util.js";
 
 const {
   dir: { publicDirectory },

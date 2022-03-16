@@ -1,7 +1,7 @@
 import { describe, test, jest, expect } from "@jest/globals";
-import { Controller } from "../../../server/controller.js";
-import { Service } from "../../../server/service.js";
-import TestUtil from "../_util/test.util.js";
+import { Controller } from "../../../../server/controller/index.js";
+import { Service } from "../../../../server/services/index.js";
+import TestUtil from "../../_util/test.util.js";
 
 describe("#Controller - test suite for API controller ", () => {
   beforeEach(() => {
