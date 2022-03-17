@@ -1,5 +1,6 @@
 ## Comandos para visualizar infos (bit, size, duration...)
 
+```bash
 sox \
  --i \
  "audio/songs/conversation.mp3"
@@ -7,6 +8,7 @@ sox \
 sox \
  --i \
  "audio/fx/Boo! Sound Effect (128 kbps).mp3"
+```
 
 ## Tratamento de bitRate
 
