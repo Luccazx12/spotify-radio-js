@@ -10,6 +10,7 @@ sox \
 
 ## Tratamento de bitRate
 
+```bash
 sox \
  -v 0.99 \
  --type mp3 \
@@ -17,6 +18,7 @@ sox \
  -r 48000 \
  --type mp3 \
  "output.mp3"
+ ```
 
 (v) = volume
 (t) = tipo do arquivo (entrada)
@@ -28,14 +30,16 @@ sox \
 
 ## Obter o bitrate
 
+```bash 
 sox \
  --i \
  -B   \
  "audio/fx/Boo! Sound Effect (128 kbps).mp3"
-
+```
 
 ## Concatenar dois audios
 
+```bash 
 sox \ 
   -t mp3 \
   -v 0.99 \
@@ -45,5 +49,6 @@ sox \
   "audio/fx/Fart - Gaming Sound Effect (HD) (128 kbps).mp3" \
   -t mp3 \
   "output.mp3"
+```
 
 (m) = "de onde vamos mergiar"
